@@ -1,0 +1,51 @@
+1)
+
+R: As aplicações concorrentes são implementadas apenas com o uso de múltiplos processos independentes ou subprocessos.
+
+2)
+
+R:O uso de processos no desenvolvimento de aplicações concorrentes demanda consumo de diversos recursos do sistema.
+
+3)
+
+R: A multithreading é a capacidade de um processador executar vários processos ou threads simultaneamente. Isso é possível graças à utilização de vários cores no processador, o que permite que várias tarefas sejam executadas ao mesmo tempo. As principais vantagens da utilização de ambientes multithread são aumento da eficiência e a diminuição do tempo de execução das tarefas.
+
+4)
+
+R: A unidade de alocação de recursos é responsável por gerenciar a alocação de recursos para as threads. Já a unidade de escalonamento é responsável pelo gerenciamento do tempo de execução das threads.
+
+5)
+
+R: As principais vantagens do compartilhamento do espaço de endereçamento entre threads de um mesmo processo são a simplicidade e a eficiência. Já as principais desvantagens são a existência de potenciais conflitos de acesso e a possibilidade de bloqueio das threads.
+
+
+6)
+
+R: Os principais diferenciais entre os pacotes de threads em modo usuário e modo kernel são a implementação, a performance e a portabilidade. No modo usuário, as threads são implementadas como um conjunto de procedimentos que são chamados pelo sistema operacional. Já no modo kernel, as threads são parte do núcleo do sistema operacional e, portanto, possuem uma implementação mais eficiente.
+
+
+7)
+
+R: O scheduler activations é um modelo de escalonamento de threads que oferece maior flexibilidade e controle sobre a execução das threads. Comparado ao pacote híbrido, o scheduler activations é mais eficiente e escalona as threads de forma mais adequada às suas necessidades.
+
+
+8)
+
+R: Os editores de textos e as planilhas eletrônicas são aplicações que fazem uso intensivo de threads. Isso é necessário para que as diversas operações possam ser executadas de forma simultânea, o que garante um melhor desempenho do sistema.
+
+
+
+9)
+
+R:
+O uso de threads em ambientes com múltiplos processadores permite que as diversas tarefas sejam divididas entre os vários processadores disponíveis. Dessa forma, cada processador pode se concentrar em executar sua tarefa, o que garante um melhor desempenho do sistema.
+
+10)
+
+R: O uso de threads em ambientes cliente-servidor oferece diversos benefícios. Um deles é a melhora no gerenciamento de conexões, já que cada thread pode se concentrar em atender a um determinado cliente. Outro benefício é a diminuição do tempo de resposta, já que as threads podem processar as requisições de forma paralela.
+
+
+11)
+
+R: O uso de threads em arquiteturas microkernel é muito útil para aumentar a eficiência do sistema. Isso porque cada thread pode se concentrar em executar uma tarefa específica, o que diminui o overhead do sistema e garante um melhor desempenho.
+

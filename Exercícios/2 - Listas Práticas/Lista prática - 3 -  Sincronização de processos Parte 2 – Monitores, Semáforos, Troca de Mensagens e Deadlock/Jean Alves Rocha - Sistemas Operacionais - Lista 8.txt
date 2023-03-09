@@ -1,0 +1,129 @@
+-------------------------------------------------------------------------------------------LISTA TEÓRICA---------------------------------------------------------------------------
+
+
+1) Explique o que são monitores e dê dois exemplos de sua utilização: um para a solução da exclusão mútua e outro para a sincronização condicional.
+
+
+R: Monitores são mecanismos de sincronização de alto nível que torna mais simples o desenvolvimento de aplicações concorrentes.
+
+Na exclusão mútua, a implementação utilizando monitores não é realizada diretamente pelo programador; as regiões críticas são definidas como procedimentos no monitor e o compilador garante a exclusão mútua; a comunicação do procedimento e o monitor é executada através de chamada a procedimentos e dos parâmetros passados.
+
+Na sincronização condicional, poder implementada utilizando-se de monitores através de variáveis especiais de condição; é possível associar a execução de um procedimento que faz parte do monitor a uma determinada condição.
+
+
+
+2)  O que é deadlock, quais as condições para obtê-lo e quais as soluções possíveis?
+
+R: 2-Deadlock (interbloqueio, blocagem, impasse), no contexto de sistemas operacionais (SO), refere-se a uma situação em que ocorre um impasse, e dois ou mais processos ficam impedidos de continuar suas execuções - ou seja, ficam bloqueados, esperando uns pelos outros.[1] Trata-se de um problema bastante estudado em sistemas operacionais e banco de dados, pois é inerente à própria natureza desses sistemas.
+O deadlock ocorre com um conjunto de processos e recursos não-preemptíveis, onde um ou mais processos desse conjunto está aguardando a liberação de um recurso por um outro processo, o qual, por sua vez, aguarda a liberação de outro recurso alocado ou dependente do primeiro processo.
+
+Condições para obter um Deadlock:
+Condição de não-preempção: recursos já alocados a processos não podem ser tomados à força. Eles precisam ser liberados explicitamente pelo processo que detém a sua posse;
+Condição de exclusividade mútua: cada recurso ou está alocado a um processo ou está disponível;
+Condição de posse-e-espera: cada processo pode solicitar um recurso, ter esse recurso alocado para si e ficar bloqueado, esperando por um outro recurso;
+Condição de espera circular: deve existir uma cadeia circular de dois ou mais processos, cada um dos quais esperando por um recurso que está com o próximo integrante da cadeia.
+
+Soluções possíveis :
+As situações de deadlock podem ser tratadas ou não em um sistema, e cabe aos desenvolvedores avaliar o custo/benefício que essas implementações podem trazer. Normalmente, as estratégias usadas para detectar e tratar as situações de deadlocks geram grande sobrecarga, podendo até causar um dano maior que a própria ocorrência do deadlock, sendo, às vezes, melhor ignorar a situação.[2]
+Existem três estratégias para tratamento de deadlocks:
+Ignorar a situação
+Detectar o deadlock e recuperar o sistema
+Evitar o deadlock
+
+
+3) Por que os monitores são considerados mecanismos de sincronização estruturados e os semáforos são considerados não estruturados? 
+
+
+R: Conceito proposto em 1972 e implementado em 1974, como um mecanismo de sincronização estruturado (semáforos são considerados nãoestruturados).  
+Considerados mecanismos de alto nível estruturados, pois são implementados pelo compilador (mais confiáveis que semáforos, que são implementados pelo programador).  
+É formado por procedimentos e variáveis encapsulados dentro de um módulo.  Implementa automaticamente a exclusão mútua entre seus procedimentos  Sempre que um processo faz uma chamada a um procedimento do monitor, o monitor verifica se já há outro procedimento seu sendo executado, se houver, o processo vai para uma fila.
+Semáforos não estruturados- Associa-se um semáforo binário ao recurso compartilhado -> valor 1 significa recurso livre, valor 0 significa recurso ocupado.  Vantagem: não há espera ocupada.  DOWN e UP funcionam como protocolo de entrada e saída.  Quando o processo deseja entrar em sua região crítica, executa a instrução DOWN. Se o semáforo for igual a 1, o valor é decrementado e o processo executa a região crítica.  Se o DOWN é executado em um semáforo igual a 0, o processo entra em estado de espera.  
+Ao sair da região crítica, processo executa uma instrução UP, que incrementa o valor do semáforo e libera o acesso ao recurso.  Se houver processo esperando o recurso, é selecionado um da fila de espera para ir para estado Pronto.
+
+
+
+
+4) 	
+a. Neste trecho de código há a presença de condição de corrida (race condition)? 
+Por quê?
+R: Há condição, pois todos os processos querem acesso à área crítica, logo há sim.
+
+b. Quais os valores corretos esperados para os saldos dos clientes A e B após o 
+término da execução dos processos?
+R: 200, 1200.
+
+
+c. Quais os valores finais dos saldos dos clientes se a sequência temporal de 
+execução das operações for: 1a, 2a, 1b, 2b, 1c, 2c, 1d, 2d, 1e, 2e, 1f, 2f?
+R: 400, 1100.
+
+d. Utilizando semáforos, proponha uma solução que garanta a integridade dos 
+saldos e permita o maior compartilhamento possível dos recursos entre os 
+processos
+R: É só implementar down quando uma thread estiver entrando na área crítica e, quando sair, dar um UP, assim a outra thread saberá que a área crítica pode ser acessada.
+
+------------------------------------------------------------------------------------------LISTA PRÁTICA-----------------------------------------------------------------------
+
+1) fiz
+
+2)
+	a) O que aconteceu ao executar o código-fonte? Descreva.
+	R: A thread 1 começou a somar, depois a thread 2 começou a retirar, e, por fim, travou. 
+
+	b)  Podemos dizer que há uma situação de deadlock neste código? Por quê?
+	R: Houve deadlock, porque há dois semáforos quando a thread 1 sinalizou que entraria na área crítica para um semáforo, a thread 2 sinalizou para o outro,
+porém para que haja a entrada na área é necessário a sinalização dos dois, portanto o a thread 1 ficou esperando a 2 desocupar e vice-versa.
+
+
+3)
+	Procedimento 1.
+
+	a) O que ocorreu ao executar o procedimento 1? O algoritmo proposto resolve totalmente o problema? Por quê?
+	R: Houve deadlock. Não resolveu, porque ocorreu os 4 pressupostos para dar deadlock e o algoritmo não resolveu isso, porque cada filósofo pegou um garfo e tornou-se uma espera infinita.
+	
+	b) Caso, o algoritmo não tenha resolvido totalmente o problema, quais outras soluções poderiam ser utilizadas para resolver o problema? (Não é necessário implementar, apenas cite.)
+
+	R: Diminuir um lugar na mesa já resolveria o problema.
+
+
+	Procedimento 2.
+
+	a) Todos os filósofos comeram. Resolveu. Ele diminuiu o número de lugares, portanto só 4 se sentavam a mesa, logo sempre que ocorresse a pega de talheres circular, sobraria 1 talher e, portanto, alguém começaria a comer.
+
+
+4) Pesquise sobre os comandos “nice” e “renice” no Linux, descrevendo qual é o seu 
+funcionamento, sintaxe e argumentos.
+
+------------------------------------------------NICE------------------------------------------------------------------
+
+R: nice: O comando nice no Linux ajusta o tempo disponível de CPU de um processo para mais ou para menos prioridade. 
+
+No inglês a palavra “nice” quer dizer “legal”. Se o ajuste de prioridade para um processo for um número positivo, quer dizer que ele está sendo mais legal com os outros programas diminuindo a sua prio­ridade. 
+
+
+O ajuste de prioridade possível vai do –20 (mais prioridade / menos legal) até o 19 (mais legal, menos prioridade).
+
+
+Neste exemplo o comando updatedb tem menos prioridade de execução:
+
+$ nice updatedb &
+Neste exemplo o comando folha_pagamento será executado com mais prioridade.
+
+$ nice –n –10 folha_pagamento 
+
+
+------------------------------------------------RENICE ---------------------------------------------------------------
+
+renice: O comando renice ajusta a prioridade de execução de processos em execução.
+
+Por padrão, o comando renice recebe como parâmetro o PID de um determinado processo. O ajuste de prioridade é um número inteiro do –20 (maior prioridade) até o +19 (executar qualquer coisa antes deste processo).
+
+As opções mais usuais são:
+
+-p: Recebe um PID para alterar sua prioridade.
+-u: Recebe um nome de usuário para alterar a prioridade de todos os processos deste usuário em execução.
+-g: Recebe um nome de um grupo para alterar a prioridade de todos os processos pertencentes a este grupo.
+
+Neste exemplo, o processo de número PID 987, PID 32 e todos os processos de que os usuários daemon e root são donos vão ter mais prio­ridade.
+
+# renice -1 987 -u daemon root -p 32

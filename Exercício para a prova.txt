@@ -1,0 +1,83 @@
+Processo 1
+
+Saldo A = 500
+
+1b -> x: A - 200 -> 300
+
+1c -> A = x -> Saldo = 300
+
+
+Processo 2
+
+y = Saldo A;
+
+y = y - 100 -> 200
+
+SAldo A = 200
+
+
+
+
+Depósito 
+
+
+Processo 1
+
+
+x = saldoB -> 900
+
+x = x + 100 -> 1000
+
+saldo B = x -> 1000
+
+
+Processo 2
+
+y = Saldo B -> 1000
+
+y = y + 200 -> 1200
+
+Saldo B -> 1200
+
+
+
+1a, 2a, 1b, 2b, 1c,
+2c, 1d, 2d, 1e, 2e, 1f, 2f?
+
+
+Saldo A -> 500
+
+Saldo B -> 900
+
+1a - x := A -> 500
+
+2a - y:= A -> 500
+
+1b - x := x - 200 -> 300
+
+2b - y:= y - 100 -> 400
+
+1c -> Saldo A:= x -> 300
+
+2c -> Saldo A:= 400
+
+A = 400
+
+1d -> x:= saldo B -> 900
+
+2d -> y:= Saldo B -> 900
+
+1e -> x:= x + 10 -> 1000
+
+2e -> y:=y+200 -> 1100
+
+1f -> SaldoB := 1000
+
+2f -> SaldoB :=1100
+
+
+Saldo A 400  ------ Saldo B 1100
+
+
+
+

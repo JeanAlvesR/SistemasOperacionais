@@ -1,0 +1,57 @@
+1 - Processo é uma sequência de passos necessária para exercutar instruções a partir do ciclo de busca e execução. Além disso, pode ser definido como O conceito de processo pode ser definido como sendo o conjunto necessário de informações para que o SO implemente a concorrência de programas.
+
+2 - Porque através deve é possível alocar recursos, compartilhar dados, trocas informações e sincronizar suas execuções, tudo isso devido à gerência dos processos.
+
+3 - É composto por três partes: Contexto de Software, hardware e Espaço de Endereçamento.
+
+4 - Contexto de hardware é cenário que o processador se encontra em relação à execução do que estiver sendo processado e o que está nos registradores.
+
+Exemplo: O processo A começa a ser executado e, precisa de uma e/s, então o é feito o salvamento dos registradores do processo A, carrega os registradores do Processo B, e este começa a ser executado; Após a determinado período, por definição do sistema, o processo B (pode) é parado, seu contexto é salvo, isto é, salva os registradores dele, e carrega os registradores do processo A e retorna a execução deste.
+
+
+5 - O contexto do software contém as informações que o sistema operacional precisa para executar um programa. Quotas limitam o número de recursos que um processo pode usar. Identificações permitem que um processo seja identificado de forma única. Privilégios permitem que um processo acesse determinados recursos.
+
+6 - O espaço de endereçamento de um processo é o conjunto de todos os endereços de memória que o processo pode acessar.
+
+7 - O sistema operacional implementa o conceito de processo usando uma estrutura de dados chamada process control block (PCB). A PCB é usada para armazenar informações sobre um processo, como o seu identificador, o seu status, quais são os seus recursos alocados e assim por diante.
+
+8 - Os cinco estados possíveis de um processo são: novo, pronto, executando, bloqueado e terminado. Um processo pode estar em um dos seguintes estados a qualquer momento.
+
+9 - Um exemplo de uma sequência de estados de um processo é a seguinte: Novo -> Pronto -> Executando -> Bloqueado -> Pronto -> Executando -> Terminado. Os eventos que podem causar essas mudanças de estado são: a execução do programa, a interrupção do programa, a suspensão do programa e a finalização do programa.
+
+10 - Os processos multithreads são processos que possuem mais de um fluxo de controle. Subprocessos são processos que estão sob o controle de outro processo. Processos independentes são processos que não estão sob o controle de nenhum outro processo.
+
+11 - Os processos foreground são os processos que estão em execução no momento e que estão recebendo a entrada do usuário. Os processos background são os processos que estão em execução, mas que não estão recebendo a entrada do usuário.
+
+12 - A relação entre processo e arquitetura microkernel é que a arquitetura microkernel é um tipo de estrutura de processo. A arquitetura microkernel é um tipo de estrutura de processo que divide as funções do sistema operacional em vários módulos menores. Esses módulos são executados em processos separados, o que significa que eles são isolados uns dos outros.
+
+13 - 	CPU-bound: processamento de vídeo, renderização de gráficos 3D, processamento de imagens.
+	I/O-bound: operações de E/S, como transferências de arquivos, acesso a banco de dados, leitura de disco.
+
+14 - Um sinal é um aviso para um processo de que algo está acontecendo. Por exemplo, um sinal pode ser enviado para um processo para avisá-lo de que um outro processo está tentando acessar um recurso que ele está usando. As interrupções e exceções são avisos para o sistema operacional de que algo está acontecendo. 
+Por exemplo, uma interrupção pode ser gerada quando um processo tenta acessar um recurso que não está disponível.
+
+15 - Quando um processo é eliminado, o sistema operacional envia um sinal para o processo, indicando que ele deve terminar. O processo pode escolher ignorar o sinal, mas se o sinal for recebido e tratado, o processo será encerrado.
+
+
+16 - 
+
+jobs: O comando jobs mostra uma lista de todos os processos em segundo plano que estão sendo executados atualmente no shell.
+
+ps: O comando ps no Linux mostra os processos em execução no sistema.
+
+pstree: O comando pstree mostra a árvore de processos do sistema, incluindo os processos filhos, netos e assim por diante.
+
+top: O comando top mostra uma lista de processos em execução, ordenados por uso de CPU. Ele fornece informações detalhadas sobre o uso de CPU, memória e disco.
+
+kill: O comando kill é usado para encerrar um processo.
+
+cat: O comando cat no linux é usado para exibir o conteúdo de um arquivo de texto.
+
+grep: O comando grep procura padrões em arquivos e mostra as linhas que os contêm.
+
+cd: O comando cd é um comando de linha de comando do Unix que permite aos usuários alterar o diretório de trabalho atual para outro diretório.
+
+ls: O comando ls no linux lista os arquivos e diretórios de um determinado diretório.
+
+pipe: O comando pipe permite que os dados de um programa sejam enviados como entrada para outro programa. Isso é útil quando é necessário processar os dados de um programa usando as ferramentas de outro programa.

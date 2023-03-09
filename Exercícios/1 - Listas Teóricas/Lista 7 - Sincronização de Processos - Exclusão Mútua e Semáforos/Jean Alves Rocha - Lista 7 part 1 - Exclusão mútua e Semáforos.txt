@@ -1,0 +1,75 @@
+1) Defina o que é uma aplicação concorrente e dê um exemplo de sua utilização.
+
+R:  Aplicação concorrente é a possibilidade de todos os processos que necessitam de recursos da UCP concorram entre eles
+pelo recurso, de modo que, através do S.O orquestrando tudo, torne a demanda pelos recursos mais eficiente.
+Um exemplo é um processo A que está numa fila de processos, onde há prioridade maior e, portanto, será executado;
+durante essa execução todos os outros processos que estão na fila disputam com base em critérios quais serão executados e,
+caso a execução do processo A demore muito ou apareça um processo crítico com maior prioridade, ele será executado e, o processo A voltará para a fila.
+Também, além da demora, o processo A poderia necessitar de uma entrada e saída de dados, então ele seria colocado na fila de espera
+o processador mandaria um sinal para capturar a entrada de dados, então outro processo durante esse tempo de espera, utilizará o recurso.
+ 
+
+
+2) Considere uma aplicação que utilize uma matriz na memória principal para
+a comunicação entre vários processos concorrentes. Que tipo de problema
+pode ocorrer quando dois ou mais processos acessam uma mesma posição da
+matriz?
+
+R: Pode ocorrer inconscistência, pois um processo pode pegar, por exemplo, no endereço de memória o valor de x = 3
+e somar x + 1, antes de ele atribuir o valor ao endereço de memória, o processo concorrente pode acessar o mesmo endereço
+e pegar o x ainda valendo 3, portanto, caso não haja exclusão mútua, os dados ficarão inconscistentes. (acho que ficou claro).
+
+
+
+3) O que é exclusão mútua e como é implementada?
+R: É impedir que dois ou mais processos acessem um mesmo recurso 
+simultaneamente. Para isso, enquanto um processo estiver acessando determinado 
+recurso, todos os demais processos que queiram acessá-lo deverão esperar pelo 
+término da utilização do recurso.
+
+
+
+4)  Como seria possível resolver os problemas decorrentes do compartilhamento 
+da matriz, apresentado anteriormente, utilizando o conceito de exclusão 
+mútua?
+
+R: Garantindo na aplicação que somente um único processo pode estar acessando a 
+matriz por vez.
+
+
+
+5)  O que é starvation e como podemos solucionar esse problema?
+
+Starvation é quando um processo não consegue ser executado, de forma alguma, pois sempre existem processos de prioridade maior para serem executados,
+de forma que o processo "faminto" nunca consiga tempo de processamento. Uma forma de solucionar isso é mudar as politicas de concorrência
+um exemplo para isso é o aging, onde é o processo de menor prioridade vai ganhando de pouco a pouco prioridade até conseguir ter prioridade suficiente para ser executaado.
+
+
+
+6) Qual o problema com a solução que desabilita as interrupções para 
+implementar a exclusão mútua?
+R: A interrupção é base da multiprogramação, pois a ideia de concorrência existe muito por conta disso.
+
+
+
+7) O que é espera ocupada e qual o seu problema?
+R: Espera ocupada é quando um processo não consegue entrar na região crítica, pois existe um processo acessando, 
+então ele fica em loop de checagem para que, quando o processo que estão região saia, ele acesse. O problema disso é
+que o loop consome recursos do processador, deixando o sistema ineficiente.
+
+
+
+8) Explique o que é sincronização condicional e dê um exemplo de sua 
+utilização.
+R: Sinronização condicional é quando só há acesso ao recurso, caso uma condição seja satisfeita. Um exemplo disso é
+o produtor e consumidor, onde o produtor só pode produzir, caso o buffer tenha espaço, e o consumidor só poderar consumir, 
+caso existe dados na memória buffer.
+
+
+
+9) Explique o que são semáforos e dê um exemplo de sua utilização para a 
+solução da exclusão mútua.
+R: O semáforo é uma estrutura de dados usada para garantir que vários processos não acessem um recurso comum
+ou uma seção crítica ao mesmo tempo, em ambientes de programação paralelos. Um exemplo é o semaforo binário,
+o qual sinaliza se o recurso está ou não disponível para ser acessado com base em 0 ou 1, onde o processo só acessará o recurso,
+se o semáforo sinalizar que a região está livre.

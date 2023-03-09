@@ -1,0 +1,44 @@
+1) Fiz tudo...
+
+2) 
+	a) [1] Running sleep 5m & -> Um processo rodando em background.
+
+	b) Há três processos rodando em Background.
+
+	c) A tela ficou travada, pois o comando fg %2 faz com que o processo 2, o de 10m, fique em primeiro plano.
+	
+	d) O primeiro e o terceiro continuam rodando, porém o segundo está parado (Stopped).
+	
+	e) O processo 2 que estava parado agora começou a rodar novamente em background.
+
+	f) O processo 2 foi finalizado.
+
+	g) O processo sumiu, pois foi finalizado.
+
+3) 
+	Procedimento 1:
+		a) Foram criadas threads que executavam um laço for 10 vezes cada uma. Foram criadas 3 threads.
+
+		b) Não é possível a ordem. Quem a define é o sistema operacional.
+
+	Procedimento 2:
+		c) Isso é possível, pois as duas threads compartilham o mesmo espaço de memória (endereçamento), a qual é a principal característica das threads.
+
+		d) Foi diferente, porque quando é criado um fork, o filho terá seu próprio espaço de memória, o qual é diferente do pai. Por outro lado, as threads compartilham o mesmo espaço de memória.
+
+
+4)
+Procedimento 1:
+
+		a) Não é possível garantir, porque não existe uma lógica que ordene as duas threads, portanto as duas estarão acessando a região ao mesmo tempo e tornando os dados inconsistentes.
+
+		b) São falhas num sistema ou processo que o resultado é inesperado. (WIKI) No caso da programa thread3, ocorre exatamente isso, portanto sempre o resultado será inesperado.
+		Uma das formas de se evitar isso é utilizando semáforos, onde é adotado o mecanismo de exclusão mútua, isto é, quando existe o acesso da área crítica, a outra thread deverá esperar.
+
+Procedimento 2: 
+
+		e) Durante a execução foi adicionado 10000 e retirado 10000 dentro dos laços de e em 1, onde as threads respeitavam quando uma das duas estava acessando a região crítica, portanto o resultado é previsível, n = 0.
+
+		f) Porque o semáforo coordenou o acesso à região crítica através da exclusão mútua.
+		
+		g) Podemos, sim.
